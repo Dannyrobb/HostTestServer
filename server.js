@@ -16,6 +16,7 @@ const db = require("knex")({
   },
 });
 app.get("/", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", "true")
   try {
     const info = await db("users").select();
     res.json(info);
